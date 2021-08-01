@@ -1,3 +1,27 @@
+/* body 스크롤 타임라인 애니메이션 */
+body{
+  overflow-x: hidden;
+}
+@scroll-timeline scroll-progress{
+  source: selector(body);
+  time-range: 1s;
+}
+@keyframes scroll-progress{
+  100%{
+    transform: translateX(0);
+  }
+}
+.progress-bar{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 10px;
+  background-color: #FFC107;
+  transform: translateX(-100%);
+  animation: scroll-progress 1s linear;
+  animation-timeline:scroll-progress;
+}
+
 /* 본문 전체를 포함하는 컨테이너 */
 .body-container{
   display: flex;
